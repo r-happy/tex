@@ -1,0 +1,102 @@
+\documentclass[paper=a4paper]{jlreq}
+
+%画像
+\usepackage{graphicx}
+%ハイパーリンク
+\usepackage[hidelinks]{hyperref}
+%表
+\usepackage{makecell}
+%数式
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage[]{luatexja-preset}
+\usepackage{float}
+\usepackage{listings, jvlisting}
+
+% --- command ---
+\newcommand{\TITLE}{title is here}
+\newcommand{\NAME}{name is here}
+\newcommand{\NUMBER}{class number is here}
+\newcommand{\WEATHER}{weather is here}
+\newcommand{\TEMPERATURE}{temperature is here}
+\newcommand{\HUMIDITY}{humidity is here}
+\newcommand{\Figure}[4]{
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=#1\linewidth]{public/img/#2}
+    \caption{#3}
+    \label{fig:#4}
+  \end{figure}
+}
+\newcommand{\Inline}[1]{\lstinline[style=inline]{#1}}
+\renewcommand{\lstlistingname}{ソースコード}
+
+% --- config ---
+% \setmonofont{PlemolJP35 Console NF}
+\setmonofont{Hack Nerd Font}
+\lstset{
+  % タブの展開後のサイズ
+  tabsize={4},
+  % 行番号表示，デフォルト: none 他のオプション: left, right
+  numbers=left,
+  % 識別子の書体指定
+  identifierstyle={\small},
+  % 行番号の書体指定
+  %numberstyle=\scriptsize,
+  % 注釈の書体。
+  commentstyle={\small\ttfamily},
+  ndkeywordstyle={\small},
+  columns=[l]{fullflexible},
+  xrightmargin=0\zw,
+  xleftmargin=0\zw,
+  numbersep=1\zw,
+  %backgroundcolor={\color[gray]{.85}},
+  % frameの指定．デフォルト: none 他のオプション: leftline, topline, bottomline, lines, single, shadowbox
+  frame=lines,
+  % 行が長くなってしまった場合の改行．デフォルト: false
+  breaklines=true,
+  %標準の書体
+ 	basicstyle = \ttfamily\scriptsize\linespread{1.0}\normalsize\small,
+}
+\lstdefinestyle{inline}{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+}
+
+% --- begin ---
+\begin{document}
+
+{\centering \LARGE \TITLE \par}
+
+\begin{table}[b]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        報告者   & \NAME \quad \NUMBER \\
+        \hline
+        共同実験者 & \NAME \quad \NUMBER \\
+              & \NAME \quad \NUMBER \\
+              & \NAME \quad \NUMBER \\
+              & \NAME \quad \NUMBER \\
+              & \NAME \quad \NUMBER \\
+        \hline
+        天候    & \WEATHER            \\
+        \hline
+        室温    & \TEMPERATURE        \\
+        \hline
+        湿度    & \HUMIDITY           \\
+        \hline
+        提出日   & \today              \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+
+{\centering \Large \TITLE \par}
+\rightline{提出者 : \NUMBER \quad \NAME}
+\rightline{提出日 : \today}
+
+\end{document}
