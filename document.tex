@@ -15,6 +15,7 @@
 \usepackage{listings, jvlisting}
 \usepackage{multirow}
 \usepackage{booktabs}
+\usepackage{amssymb}
 
 % --- command ---
 \newcommand{\TITLE}{title is here}
@@ -36,7 +37,7 @@
 
 % --- config ---
 % \setmonofont{PlemolJP35 Console NF}
-\setmonofont{Hack Nerd Font}
+% \setmonojfont{PlemolJP35 Console NF}
 \lstset{
   % タブの展開後のサイズ
   tabsize={4},
@@ -100,5 +101,26 @@
 {\centering \Large \TITLE \par}
 \rightline{提出者 : \NUMBER \quad \NAME}
 \rightline{提出日 : \today}
+
+\section{画像}
+図\ref{fig:rhappy_icon}にらっぴーのアイコン示す。
+\Figure{0.5}{rhappy_icon.jpg}{ラッピーのアイコン}{rhappy_icon}
+
+\section{ソースコード}
+\subsection{ファイルの一部分}
+\Inline{print__hello_world}関数のソースコードをリスト\ref{lst:print__hello_world_func}に示す。  
+
+\begin{lstlisting}[caption={print\_\_hello\_world関数のソースコード}, label={lst:print__hello_world_func}]
+void print__hello_world(void) {
+    // hello worldを出力
+    printf("hello world\n");
+}
+\end{lstlisting}
+
+\subsection{ファイルを読み込む}
+\lstinputlisting[caption={main.cのソースコード}, label={lst:source_main}]{public/code/main.c}
+
+\subsection{文章内でmonoフォントを使う}
+sample text sample text \Inline{sample text} sample text
 
 \end{document}
